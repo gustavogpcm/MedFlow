@@ -12,7 +12,7 @@ app.register(cors, {
 })
 
 app.register(healthCheck)
-app.register(promptuary, { prefix: 'promptuary' })
+app.register(promptuary)
 
 app
   .listen({
