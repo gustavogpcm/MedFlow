@@ -43,6 +43,9 @@ export async function promptuary(app: FastifyInstance) {
         await makeRequest(protocolOnMediflowObjectRequest)
       ).data
 
+      console.log('Bundle Medflow:')
+      console.log(medflowBundle)
+
       const resourcesToProcess = medflowBundle.entry.filter((item) =>
         validResourceTypes.includes(item.resource.resourceType),
       )
