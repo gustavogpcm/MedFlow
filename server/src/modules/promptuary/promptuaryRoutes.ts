@@ -27,6 +27,8 @@ export async function promptuary(app: FastifyInstance) {
   app.post(
     '/webhook/endpoint/path/',
     async (request, reply): Promise<FastifyReply> => {
+      console.log('Chegou Requisição Medflow')
+
       const body: any = request.body
 
       const urlToGetBundle = body.data.bundle_url
