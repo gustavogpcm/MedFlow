@@ -106,6 +106,11 @@ export async function sendAttendanceSchedule(): Promise<void> {
       },
     }
 
+    console.log('Vai abrir a tela do Medflow')
+    await makeRequest(sendUrlToOpenObjectRequest)
+
+    console.log('Vai abrir o Google')
+    sendUrlToOpenObjectRequest.data.url = 'https://www.google.com.br'
     await makeRequest(sendUrlToOpenObjectRequest)
 
     console.log('\n \n## Fim da Operação ##')
