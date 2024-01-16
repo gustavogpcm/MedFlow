@@ -44,13 +44,14 @@ export async function promptuary(app: FastifyInstance) {
         url: urlToGetBundle,
         headers: {
           'x-client-id': process.env.CLIENT_ID,
+          'x-client-token': process.env.CLIENT_TOKEN,
         },
       }
 
       console.log('\nRequisição do protocolo:')
       console.log(protocolOnMediflowObjectRequest)
 
-      const medflowBundle: any = (
+      const medflowBundle: any = await (
         await makeRequest(protocolOnMediflowObjectRequest)
       ).data
 
