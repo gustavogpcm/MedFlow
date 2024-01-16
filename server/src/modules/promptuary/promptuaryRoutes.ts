@@ -31,31 +31,21 @@ export async function promptuary(app: FastifyInstance) {
 
       const body: any = request.body
 
-      console.log('\nBody')
-      console.log(request.body)
-
-      const urlToGetBundle = body.data.bundle_url
-
-      console.log('\nURL do Bundle:')
-      console.log(urlToGetBundle)
+      const urlToGetBundle = `${process.env.URL_BASE_MEDFLOW}${body.data.bundle_url}`
 
       const protocolOnMediflowObjectRequest: AxiosRequestConfig = {
         method: 'GET',
         url: urlToGetBundle,
         headers: {
           'x-client-id': process.env.CLIENT_ID,
-          'x-client-token': process.env.CLIENT_TOKEN,
         },
       }
 
-      console.log('\nRequisição do protocolo:')
-      console.log(protocolOnMediflowObjectRequest)
-
-      const medflowBundle: any = await (
+      const medflowBundle: any = (
         await makeRequest(protocolOnMediflowObjectRequest)
       ).data
 
-      console.log('\nBundle Medflow:')
+      console.log('Bundle Medflow:')
       console.log(medflowBundle)
 
       const resourcesToProcess = medflowBundle.entry.filter((item) =>
@@ -116,8 +106,6 @@ export async function promptuary(app: FastifyInstance) {
         console.log('(INF) Concluiu a execução!')
         index++
       }
-
-      console.log('Processo concluído')
 
       return reply.status(201).send()
     },
