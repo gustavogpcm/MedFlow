@@ -31,7 +31,13 @@ export async function promptuary(app: FastifyInstance) {
 
       const body: any = request.body
 
+      console.log('\nBody')
+      console.log(request.body)
+
       const urlToGetBundle = body.data.bundle_url
+
+      console.log('\nURL do Bundle:')
+      console.log(urlToGetBundle)
 
       const protocolOnMediflowObjectRequest: AxiosRequestConfig = {
         method: 'GET',
@@ -41,11 +47,14 @@ export async function promptuary(app: FastifyInstance) {
         },
       }
 
+      console.log('\nRequisição do protocolo:')
+      console.log(protocolOnMediflowObjectRequest)
+
       const medflowBundle: any = (
         await makeRequest(protocolOnMediflowObjectRequest)
       ).data
 
-      console.log('Bundle Medflow:')
+      console.log('\nBundle Medflow:')
       console.log(medflowBundle)
 
       const resourcesToProcess = medflowBundle.entry.filter((item) =>
@@ -106,6 +115,8 @@ export async function promptuary(app: FastifyInstance) {
         console.log('(INF) Concluiu a execução!')
         index++
       }
+
+      console.log('Processo concluído')
 
       return reply.status(201).send()
     },
