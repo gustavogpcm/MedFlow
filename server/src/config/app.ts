@@ -16,6 +16,7 @@ app.register(promptuary)
 
 app
   .listen({
+    host: '0.0.0.0',
     port: apiPort,
   })
   .then(() => {
