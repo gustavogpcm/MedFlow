@@ -8,6 +8,7 @@ async function makeRequest(options: AxiosRequestConfig) {
         return response
       })
       .catch((err: AxiosError) => {
+        console.log(err)
         return err.response
       })
     return response
