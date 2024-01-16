@@ -41,6 +41,8 @@ export async function promptuary(app: FastifyInstance) {
         },
       }
 
+      console.log(protocolOnMediflowObjectRequest)
+
       const medflowBundle: any = (
         await makeRequest(protocolOnMediflowObjectRequest)
       ).data
