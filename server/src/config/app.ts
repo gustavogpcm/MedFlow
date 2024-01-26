@@ -14,6 +14,11 @@ app.register(cors, {
 app.register(healthCheck)
 app.register(promptuary)
 
+app.setErrorHandler((error, _request, reply) => {
+  console.log(error)
+  return reply.status(500).send({ message: error })
+})
+
 app
   .listen({
     host: '0.0.0.0',
