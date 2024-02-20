@@ -7,7 +7,7 @@ async function executeProcedure_GHAS_PRESCR_MEDFLOW_P(data): Promise<void> {
       BEGIN
         GHAS_PRESCR_MEDFLOW_P(
             ${data.nr_atendimento_p},
-            ${data.cd_medico_p},
+            '${data.cd_medico_p}',
             '${data.nr_prescr_medflow}', 
             '${data.ie_tipo_p}',
             '${data.ie_liberado_p}',
@@ -19,7 +19,10 @@ async function executeProcedure_GHAS_PRESCR_MEDFLOW_P(data): Promise<void> {
             '${data.ie_acm_p}',
             '${data.ds_horarios_p}',
             '${data.ie_anestesia_p}',
+            '${data.ds_justificativa_proc_p}',
             ${data.cd_material_p},
+            '${data.ds_material_p}',
+            '${data.ds_ind_material_p}',
             '${data.ie_via_aplicacao_p}',
             ${data.qt_dose_p},
             '${data.cd_unidade_medida_dose_p}',

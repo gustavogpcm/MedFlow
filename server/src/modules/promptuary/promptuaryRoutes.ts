@@ -20,6 +20,9 @@ import { findEspecialidadeMedica } from './functions/findEspecialidadeMedica'
 import { findEncaminhamento } from './functions/findEncaminhamento'
 import { findOrientacao } from './functions/findOrientacao'
 import { makeRequest } from '../../utils/makeRequest'
+import { findMaterialDescription } from './functions/findMaterialDescription'
+import { findJustification } from './functions/findJustification'
+import { findMaterialInd } from './functions/findMaterialInd'
 
 const validResourceTypes = ['MedicationRequest', 'ServiceRequest', 'CarePlan']
 
@@ -63,7 +66,10 @@ export async function promptuary(app: FastifyInstance) {
         const side = findSide(resource)
         const intervalCode = findIntervalCode(resource)
         const isNecessary = findIsNecessary(resource)
+        const justification = findJustification(resource)
         const materialCode = findMaterialCode(resource)
+        const materialDescription = findMaterialDescription(resource)
+        const materialInd = findMaterialInd(resource)
         const applicationVia = findApplicationVia(resource)
         const quantityDose = findQuantityDose(resource)
         const unityCode = findMedidaUnityCode(resource)
@@ -92,7 +98,10 @@ export async function promptuary(app: FastifyInstance) {
         prdParams.ds_horarios_p = ''
         prdParams.ie_se_necessario_p = isNecessary
         prdParams.ie_anestesia_p = null
+        prdParams.ds_justificativa_proc_p = justification
         prdParams.cd_material_p = materialCode
+        prdParams.ds_material_p = materialDescription
+        prdParams.ds_ind_material_p = materialInd
         prdParams.ie_via_aplicacao_p = applicationVia
         prdParams.qt_dose_p = quantityDose
         prdParams.cd_unidade_medida_dose_p = unityCode

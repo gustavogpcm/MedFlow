@@ -1,6 +1,6 @@
 export function findEncaminhamento(recordType, fullResource) {
   if (recordType === 'E') {
-    const encaminhamentoText = fullResource.resource.category?.[0]?.text
+    const encaminhamentoText = fullResource.resource.reasonCode?.[0]?.text
     if (encaminhamentoText) {
       return encaminhamentoText
     }

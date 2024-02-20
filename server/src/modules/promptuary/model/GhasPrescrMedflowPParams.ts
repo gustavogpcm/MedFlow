@@ -1,6 +1,6 @@
 export class GhasPrescrMedflowPParams {
   nr_atendimento_p: number | null
-  cd_medico_p: number | null
+  cd_medico_p: string | null
   nr_prescr_medflow: number | null
   ie_tipo_p: string | null
   ie_liberado_p: string | null
@@ -12,7 +12,10 @@ export class GhasPrescrMedflowPParams {
   ie_acm_p: string | null
   ds_horarios_p: string | null
   ie_anestesia_p: string | null
+  ds_justificativa_proc_p: string | null
   cd_material_p: number | null
+  ds_material_p: string | null
+  ds_ind_material_p: string | null
   ie_via_aplicacao_p: string | null
   qt_dose_p: number | null
   cd_unidade_medida_dose_p: string | null
@@ -34,7 +37,10 @@ export class GhasPrescrMedflowPParams {
     this.ie_acm_p = null
     this.ds_horarios_p = null
     this.ie_anestesia_p = null
+    this.ds_justificativa_proc_p = null
     this.cd_material_p = null
+    this.ds_material_p = null
+    this.ds_ind_material_p = null
     this.ie_via_aplicacao_p = null
     this.qt_dose_p = null
     this.cd_unidade_medida_dose_p = null
